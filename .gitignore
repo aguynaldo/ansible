@@ -127,3 +127,13 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+# vagrant 
+.vagrant/
+
+# directory of KDE
+.directory
+
+# directory of VS Code
+.vscode
