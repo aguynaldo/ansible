@@ -42,9 +42,9 @@ Vagrant.configure("2") do |config|
     centos.vm.hostname = ENV['CENTOS_HOSTNAME']
     centos.vm.network "public_network", :bridge => ENV['INTERFACE_BRIDGE_HOST_FISICO'], ip: ENV['CENTOS_IP']
 
-    if Vagrant.has_plugin?("vagrant-vbguest")
-      centos.vbguest.auto_update = false
-    end
+    # if Vagrant.has_plugin?("vagrant-vbguest")
+    #   centos.vbguest.auto_update = false
+    # end
 
     centos.vm.provider "virtualbox" do |vb|
       vb.name = ENV['CENTOS_HOSTNAME']
