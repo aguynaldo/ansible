@@ -11,8 +11,8 @@ read_var() {
 ROOT_PASS=$(read_var ROOT_PASS /vagrant/.env)
 
 # Setting root password
-echo "[TASK 1] Configurando root password"; sleep 3
-echo -e "$ROOT_PASS\n$ROOT_PASS" | passwd root
+#echo "[TASK 1] Configurando root password"; sleep 3
+#echo -e "$ROOT_PASS\n$ROOT_PASS" | passwd root
 
 # Configurando o ssh por senha
 echo "[TASK 2] Configurando o SSH para aceitar conexão por senha."; sleep 3

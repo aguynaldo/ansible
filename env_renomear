@@ -1,13 +1,18 @@
-ROOT_CENTOS=vagrant
+ROOT_PASS="!123@321AsDf!"
 INTERFACE_BRIDGE_HOST_FISICO=wlp60s0
 
 UBUNTU_BOX=ubuntu/focal64
 DEBIAN_BOX=debian/buster64
-CENTOS_BOX=bento/centos-8.2
+# CENTOS_BOX=bento/centos-8.2
+CENTOS_BOX=centos/8
+ANBIBLE_BOX=ubuntu/focal64
 
 VBOX_GROUP_NAME="/ANSIBLE"
 
 UTILS_4ALL_VMS="net-tools vim nano epel-release wget curl"
+
+ANSIBLE_HOSTNAME=ansible
+ANSIBLE_IP=192.168.0.209
 
 UBUNTU_HOSTNAME=ubuntu-focal
 UBUNTU_IP=192.168.0.210
