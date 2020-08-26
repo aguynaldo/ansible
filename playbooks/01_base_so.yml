@@ -30,7 +30,7 @@
   hosts: servidores
   become: yes
   tasks:
-    - name: Instala pacotes basicos nos debian like
+    - name: Instala pacotes basicos nos Debian like
       apt: 
         name: "{{ common_packages_debian_like }}"
         state: latest 
