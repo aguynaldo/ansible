@@ -25,5 +25,5 @@ systemctl restart sshd.service
 echo "[TASK 3] Instalando o pacotes bases"
 apt-get update
 #apt-get upgrade -y
-apt-get install python3 vim -y
+apt-get install python3 vim python-apt -y
 

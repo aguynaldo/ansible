@@ -13,19 +13,19 @@
 127.0.0.1 ansible_connection=local
 
 [ubuntu]
-192.168.0.210 
-#ansible_user=root ansible_password=vagrant
+192.168.0.221 
+#ansible_ssh_user=vagrant ansible_ssh_pass=vagrant
 
 [debian]
-192.168.0.211 
-#ansible_user=root ansible_password=vagrant
+192.168.0.222 
+#ansible_ssh_user=vagrant ansible_ssh_pass=vagrant
 
 [centos]
-192.168.0.212
-#192.168.0.212 ansible_ssh_user=vagrant ansible_ssh_pass=vagrant
+192.168.0.223 
+#ansible_ssh_user=vagrant ansible_ssh_pass=vagrant
 
 
-[remotos:children]
+[servidores:children]
 ubuntu
 debian
 centos

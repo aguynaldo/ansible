@@ -29,9 +29,9 @@ Vagrant.configure("2") do |config|
     ubuntu.vm.hostname = ENV['UBUNTU_HOSTNAME']
     ubuntu.vm.network "public_network", :bridge => ENV['INTERFACE_BRIDGE_HOST_FISICO'], ip: ENV['UBUNTU_IP']
 
-    if Vagrant.has_plugin?("vagrant-vbguest")
-      ubuntu.vbguest.auto_update = false
-    end
+    # if Vagrant.has_plugin?("vagrant-vbguest")
+    #   ubuntu.vbguest.auto_update = false
+    # end
 
     ubuntu.vm.provider "virtualbox" do |vb|
       vb.name = ENV['UBUNTU_HOSTNAME']
@@ -48,9 +48,9 @@ Vagrant.configure("2") do |config|
     debian.vm.hostname = ENV['DEBIAN_HOSTNAME']
     debian.vm.network "public_network", :bridge => ENV['INTERFACE_BRIDGE_HOST_FISICO'], ip: ENV['DEBIAN_IP']
 
-    if Vagrant.has_plugin?("vagrant-vbguest")
-      debian.vbguest.auto_update = false
-    end
+    # if Vagrant.has_plugin?("vagrant-vbguest")
+    #   debian.vbguest.auto_update = false
+    # end
 
     debian.vm.provider "virtualbox" do |vb|
       vb.name = ENV['DEBIAN_HOSTNAME']

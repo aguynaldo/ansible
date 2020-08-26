@@ -24,4 +24,4 @@ systemctl restart sshd.service
 echo "[TASK 3] Instalando o Python 3.8"
 apt update
 #apt upgrade -y
-apt install ansible sshpass -y
+apt install ansible sshpass python-apt -y

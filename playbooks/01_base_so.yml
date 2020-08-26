@@ -1,0 +1,36 @@
+---
+- name: Atualiza o SO.
+  hosts: servidores
+  become: yes
+  tasks: 
+  - name: Atualiza cache dos repositorios
+    apt:
+      update_cache: yes
+    when: ansible_os_family == 'Debian'
+
+  - name: Atualiza os sistemas Debian based
+    apt:
+      upgrade: dist
+    when: ansible_os_family == 'Debian'
+
+  # - name: Install epel-repository
+  #   yum: name=epel-release state=latest
+  #   when: ansible_os_family == 'RedHat'
+
+  # - name: Update System
+  #   yum: name=* state=latest update_cache=yes
+  #   when: ansible_os_family == 'RedHat'
+
+# - name: Instala os pacotes bases
+#   hosts: servidores
+#   become: yes
+#   tasks:
+#     - name: Instala pacotes basicos nos debian like
+#       apt: 
+#         name: {{ common_packages_debian_like }}
+#         state: latest 
+#         install_recommends: yes 
+#         update_cache: yes
+#       when: ansible_os_family == 'Debian'
+
+...
