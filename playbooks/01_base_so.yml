@@ -13,24 +13,29 @@
       upgrade: dist
     when: ansible_os_family == 'Debian'
 
-  # - name: Install epel-repository
-  #   yum: name=epel-release state=latest
-  #   when: ansible_os_family == 'RedHat'
+  - name: Instala epel-repository
+    yum: 
+      name: epel-release 
+      state: latest
+    when: ansible_os_family == 'RedHat'
 
-  # - name: Update System
-  #   yum: name=* state=latest update_cache=yes
-  #   when: ansible_os_family == 'RedHat'
+  - name: Atualiza os sistemas RedHat based
+    yum: 
+      name: "*"
+      state: latest 
+      update_cache: yes
+    when: ansible_os_family == 'RedHat'
 
-# - name: Instala os pacotes bases
-#   hosts: servidores
-#   become: yes
-#   tasks:
-#     - name: Instala pacotes basicos nos debian like
-#       apt: 
-#         name: "{{ common_packages_debian_like }}"
-#         state: latest 
-#         install_recommends: yes 
-#         update_cache: yes
-#       when: ansible_os_family == 'Debian'
+- name: Instala os pacotes bases
+  hosts: servidores
+  become: yes
+  tasks:
+    - name: Instala pacotes basicos nos debian like
+      apt: 
+        name: "{{ common_packages_debian_like }}"
+        state: latest 
+        install_recommends: yes 
+        update_cache: yes
+      when: ansible_os_family == 'Debian'
 
 ...

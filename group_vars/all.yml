@@ -6,6 +6,17 @@ ansible_ssh_pass: vagrant
 common_packages_debian_like:
   - vim
   - build-essential
+  - wget 
+  - curl
+  - net-tools
+  - nano
+
+common_packages_redhat_like:
+  - vim
+  - wget 
+  - curl
+  - net-tools
+  - nano
 
 #---Password para o MariaDB
 mysql_root_password: root

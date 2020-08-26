@@ -13,15 +13,15 @@
 127.0.0.1 ansible_connection=local
 
 [ubuntu]
-192.168.0.221 
+ubuntu-focal ansible_host=192.168.0.211 
 #ansible_ssh_user=vagrant ansible_ssh_pass=vagrant
 
 [debian]
-192.168.0.222 
+debian-buster ansible_host=192.168.0.212 
 #ansible_ssh_user=vagrant ansible_ssh_pass=vagrant
 
 [centos]
-192.168.0.223 
+centos-8 ansible_host=192.168.0.213 
 #ansible_ssh_user=vagrant ansible_ssh_pass=vagrant
 
 
