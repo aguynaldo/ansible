@@ -27,7 +27,7 @@
 #   tasks:
 #     - name: Instala pacotes basicos nos debian like
 #       apt: 
-#         name: {{ common_packages_debian_like }}
+#         name: "{{ common_packages_debian_like }}"
 #         state: latest 
 #         install_recommends: yes 
 #         update_cache: yes
