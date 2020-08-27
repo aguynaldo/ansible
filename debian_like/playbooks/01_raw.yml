@@ -1,0 +1,17 @@
+---
+- name: Instala o python caso o host não possua.
+  hosts: remotos
+  gather_facts: yes
+
+  pre_tasks:
+  - block:
+    - name: 'Atualiza o cache dos repositórios (Familia Debian)'
+      raw: "apt update"
+
+    - name: 'Instala o python (Familia Debian)'
+      raw: "apt install python -y"
+    
+    # become: yes
+    # become_method: enable
+
+

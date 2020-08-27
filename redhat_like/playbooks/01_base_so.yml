@@ -1,0 +1,16 @@
+---
+- name: Atualiza o SO.
+  hosts: servidores
+  become: yes
+  tasks: 
+  - name: Instala o epel-repository
+    yum: 
+      name: epel-release 
+      state: latest
+
+  - name: Atualiza os sistemas RedHat based
+    yum: 
+      name: "*"
+      state: latest 
+      update_cache: yes
+...
