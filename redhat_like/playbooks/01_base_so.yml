@@ -1,6 +1,6 @@
 ---
 - name: Atualiza o SO.
-  hosts: servidores
+  hosts: mysql
   become: yes
   tasks: 
   - name: Instala o epel-repository
