@@ -1,0 +1,8 @@
+----------------------------------------------------------
+ATENÇÃO: Grandes poderes trazem grandes responsabilidades.
+
+Host: {{ ansible_hostname }}
+IP: {{ ansible_default_ipv4 }}
+Linux: {{ ansible_distribution }}
+----------------------------------------------------------
+

@@ -1,4 +1,29 @@
 ---
+# ----------- GERAIS ----------- #
+- name: Customiza o /etc/profile
+  lineinfile: dest=/etc/profile line={{ item }}
+  with_items:
+    - '#--- Default export & Alias ---#'
+    - 'export HISTTIMEFORMAT="%d/%m/%Y - %H:%M:%S - "'
+    - 'export HISTSIZE="5000"'
+    - 'export HISTFILESIZE="5000"'
+    - 'alias ls="ls -lh --color"'
+    - 'alias grep="grep --color"'
+    - 'alias vi="vim"'
+    - 'alias rm="rm -i"'
+    #- '/etc/motd.sh'
+
+- name: Adicionando o arquivo motd
+  template:
+    src: motd
+    dest: /etc/motd
+    force: yes
+    owner: root
+    group: root
+    mode: 0755
+  notify:
+    - Reinicia o SSH
+
 # ----------- Timezone ----------- #
 - name: Configura o timezone
   timezone:
