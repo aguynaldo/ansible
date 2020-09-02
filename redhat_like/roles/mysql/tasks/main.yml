@@ -1,0 +1,7 @@
+---
+- name: Servidor MYSQL
+  include_tasks: "{{ item }}"
+  loop:
+    - selinux.yml
+    - mysqld.yml
+...

@@ -12,12 +12,12 @@
 [localhost]
 127.0.0.1 ansible_connection=local
 
-[centos]
+[inv_zabbix]
 mysql ansible_host=192.168.0.201
-zabbix ansible_host=192.168.0.202
+zabbix-server ansible_host=192.168.0.202
 frontend ansible_host=192.168.0.203
 #ansible_ssh_user=vagrant ansible_ssh_pass=vagrant
 
 [todos:children]
 localhost
-centos
+inv_zabbix

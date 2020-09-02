@@ -1,16 +1,8 @@
 ---
-- name: Atualiza o SO.
+- name: Configurações e atualizações base do S.0.
   hosts: mysql
   become: yes
-  tasks: 
-  - name: Instala o epel-repository
-    yum: 
-      name: epel-release 
-      state: latest
+  roles:
+    - base_so 
 
-  - name: Atualiza os sistemas RedHat based
-    yum: 
-      name: "*"
-      state: latest 
-      update_cache: yes
 ...

@@ -25,7 +25,6 @@ Vagrant.configure("2") do |config|
   # CENTOS/RHEL 8.2
   config.vm.define ENV['CENTOS_MYSQL'] do |centos|
     centos.vm.box = ENV['CENTOS_BOX']
-    centos.vm.hostname = ENV['CENTOS_MYSQL']
     centos.vm.network "public_network", 
       :bridge => ENV['INTERFACE_BRIDGE_HOST_FISICO'], 
       ip: ENV['CENTOS_MYSQL_IP']

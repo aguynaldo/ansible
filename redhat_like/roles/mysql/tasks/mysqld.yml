@@ -1,0 +1,66 @@
+---
+- name: Seta o hostname do servidor MYSQL
+  hostname:
+    name: "{{ mysql_hostname }}"
+
+- name: Instala o MYSQL
+  dnf:
+    name:
+      - mysql-server
+      - mysql
+      - python3-PyMySQL
+    state: latest
+
+- name: Inicia e habilita o serviço do Mysqld
+  systemd:
+    name: mysqld
+    state: started
+    enabled: yes
+
+- name: Configurando senha de root do MYSQL
+  mysql_user:
+    name: root
+    password: "{{ mysql_root_password }}"
+    host: localhost
+  notify: 
+    - Reinicia mysqld
+
+- name: Copiando template .my.cnf
+  template: 
+    src: my_cnf.j2 
+    dest: /root/.my.cnf 
+    owner: root 
+    group: root 
+    mode: 0600
+
+- name: Remove os usuários anônimos
+  mysql_user:
+    name: ''
+    host_all: yes
+    state: absent
+
+- name: Remove as bases de testes
+  mysql_db:
+    name: ''
+    state: absent
+
+- name: Copia script sq para criação da base de dados e dos usuários de zabbix.
+  template:
+    src: zabbix_db.j2
+    dest: /tmp/init_db.sql
+
+- name: Executa scrip mysql de criação de banco e usuários
+  mysql_db:
+    state: import
+    name: all
+    target: /tmp/init_db.sql
+    login_user: root
+    login_password: "{{ mysql_root_password }}"
+
+- name: Adiciana regra para liberar as portas do Mysql no firewall
+  firewalld:
+    port: 3306/tcp
+    permanent: yes
+    state: enabled
+  notify: Recarreaga o firewalld
+...

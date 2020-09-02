@@ -1,0 +1,28 @@
+---
+# ----------- Timezone ----------- #
+- name: Configura o timezone
+  timezone:
+    name: "{{ time_zone }}"
+
+
+# ----------- Pacotes ----------- #
+- name: Atualiza os sistemas RedHat based
+  dnf: 
+    name: "*"
+    state: latest 
+    update_cache: yes
+
+- name: Instala programas/utilitários de propósito geral
+  dnf:
+    name: "{{ common_packages_redhat_like }}"
+    state: latest
+    
+# ----------- Firewall ----------- #
+- name: Habilita inicialização automática do firewalld 
+  systemd: 
+    name: firewalld 
+    state: reloaded 
+    daemon_reload: yes 
+    enabled: yes
+  
+...

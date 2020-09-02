@@ -1,0 +1,12 @@
+---
+- name: Reinicia mysqld
+  systemd:
+    name: mysqld
+    state: restarted
+    daemon_reload: yes
+
+- name: Recarreaga o firewalld
+  systemd:
+    name: firewalld
+    state: reloaded
+...
