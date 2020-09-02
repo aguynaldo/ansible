@@ -28,10 +28,10 @@ frontend_hostname: "frontend-rhel"
 #---Credencias de acesso ao MYSQL
 mysql_root_password: "Senha#Root1!"
 
-zabbix_db_server_user: zabbix
+zabbix_db_server_user: usr_zbx_srv
 zabbix_db_server_pass: "Senha#Zabb1x!"
 
-zabbix_db_front_user: zabbix_frontend
+zabbix_db_front_user: usr_zbx_web
 zabbix_db_front_pass: "Senha#Front3nd!"
 
 # DATABASE

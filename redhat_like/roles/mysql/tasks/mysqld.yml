@@ -44,18 +44,26 @@
     name: ''
     state: absent
 
-- name: Copia script sq para criação da base de dados e dos usuários de zabbix.
-  template:
-    src: zabbix_db.j2
-    dest: /tmp/init_db.sql
-
-- name: Executa scrip mysql de criação de banco e usuários
+- name: Criar o banco de dados para o Zabbix
   mysql_db:
-    state: import
-    name: all
-    target: /tmp/init_db.sql
-    login_user: root
-    login_password: "{{ mysql_root_password }}"
+    name: '{{ zabbix_database }}'
+    encoding: utf8
+    collation: utf8_bin
+    state: present
+
+- name: Cria o usuario do zabbix-server e concede privilégios no BD
+  mysql_user:
+    name: '{{ zabbix_db_server_user }}'
+    password: '{{ zabbix_db_server_pass }}'
+    priv: '{{ zabbix_database }}.*:ALL'
+    host: '{{ zabbix_srv_ip }}'
+
+- name: Criar o usuaário do zabbix-frontend e concede permissão do BD
+  mysql_user:
+    name: '{{ zabbix_db_front_user }}'
+    password: '{{ zabbix_db_front_pass }}'
+    priv: '{{ zabbix_database }}.*:ALL'
+    host: '{{ frontend_ip }}'
 
 - name: Adiciana regra para liberar as portas do Mysql no firewall
   firewalld:
