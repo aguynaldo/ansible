@@ -1,0 +1,27 @@
+---
+- name: Adiciona o repositório da Zabbix
+  dnf:
+    name: "{{ zabbix_rhel_repo }}"
+    state: present
+
+
+- name: Instala o Zabbix-Server e o Cliente MYSQL
+  dnf: 
+    name: 
+      - zabbix-server
+      - mysql
+    state: latest
+
+- name: Descompacta arquivo de carga inicial do BD
+  unarchive:
+    src: /usr/share/doc/zabbix-server-mysql*/create.sql.gz
+    dest: /tmp/create.sql
+    remote_src: yes
+    creates: "/tmp/create.sql"
+  register: result_schema
+
+- name: Debug
+  debug:
+    msg: "{{ result_schema }}"
+
+...

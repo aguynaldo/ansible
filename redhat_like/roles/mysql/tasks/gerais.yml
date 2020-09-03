@@ -1,4 +1,8 @@
 ---
+- name: Seta o hostname do servidor MYSQL
+  hostname:
+    name: "{{ mysql_hostname }}"
+
 - name: Desabilita o SELinux em execução (Temp)
   shell: setenforce 0
 

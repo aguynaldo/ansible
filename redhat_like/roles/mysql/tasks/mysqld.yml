@@ -1,8 +1,4 @@
 ---
-- name: Seta o hostname do servidor MYSQL
-  hostname:
-    name: "{{ mysql_hostname }}"
-
 - name: Instala o MYSQL
   dnf:
     name:

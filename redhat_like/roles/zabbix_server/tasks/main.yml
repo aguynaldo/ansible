@@ -1,0 +1,8 @@
+---
+- name: Configura o servidor do Zabbix-Server
+  include_tasks: "{{ item }}"
+  loop:
+    - gerais.yml
+    - zabbix_server.yml
+
+...

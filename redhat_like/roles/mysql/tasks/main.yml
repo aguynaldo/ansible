@@ -1,7 +1,7 @@
 ---
-- name: Servidor MYSQL
+- name: Configura o Servidor MYSQL
   include_tasks: "{{ item }}"
   loop:
-    - selinux.yml
+    - gerais.yml
     - mysqld.yml
 ...

@@ -15,8 +15,8 @@
 [inv_zabbix]
 mysql ansible_host=192.168.0.201
 zabbix-server ansible_host=192.168.0.202
-frontend ansible_host=192.168.0.203
-#ansible_ssh_user=vagrant ansible_ssh_pass=vagrant
+#frontend ansible_host=192.168.0.203
+
 
 [todos:children]
 localhost
