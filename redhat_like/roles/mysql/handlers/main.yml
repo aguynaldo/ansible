@@ -5,7 +5,7 @@
     state: restarted
     daemon_reload: yes
 
-- name: Recarreaga o firewalld
+- name: Recarrega o firewalld
   systemd:
     name: firewalld
     state: reloaded

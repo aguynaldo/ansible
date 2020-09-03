@@ -66,5 +66,5 @@
     port: 3306/tcp
     permanent: yes
     state: enabled
-  notify: Recarreaga o firewalld
+  notify: Recarrega o firewalld
 ...

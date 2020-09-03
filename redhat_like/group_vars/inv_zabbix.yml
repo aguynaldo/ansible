@@ -7,11 +7,13 @@ ansible_ssh_pass: vagrant
 time_zone: "America/Sao_Paulo"
 
 common_packages_redhat_like:
+  - epel-release
   - vim
   - wget 
   - curl
   - net-tools
   - nano
+  - unzip
 
 # url do repositório do zabbix para RHEL
 

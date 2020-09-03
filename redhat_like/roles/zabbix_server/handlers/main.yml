@@ -1,2 +1,12 @@
 ---
-# handlers file for zabbix_server
+- name: Inicia o zabbix-server
+  systemd:
+    name: zabbix-server
+    state: started
+    enabled: yes
+
+- name: Recarrega o firewalld
+  systemd:
+    name: firewalld
+    state: reloaded
+...
