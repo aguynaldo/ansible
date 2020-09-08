@@ -3,4 +3,12 @@
   hostname:
     name: "{{ zabbix_hostname }}"
 
+- name: Desabilita o SELinux em execução (Temp)
+  shell: setenforce 0
+
+- name: Desabilita o SELinux permanentemente
+  replace:
+    dest=/etc/selinux/config
+    regexp='SELINUX=enforcing'
+    replace='SELINUX=disabled'
 ...
