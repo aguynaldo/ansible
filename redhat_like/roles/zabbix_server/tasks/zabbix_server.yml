@@ -38,6 +38,15 @@
     login_host: "{{ mysql_ip }}"
   when: result_schema.changed
 
+- name: Faz backup do arquivo de configuração original do Zabbix Server. 
+  copy:
+    src: /etc/zabbix/zabbix_server.conf
+    dest: /etc/zabbix/zabbix_server_original.conf
+    remote_src: yes
+    owner: root 
+    group: zabbix 
+    mode: 0640
+
 - name: Copia o arquivo de configuração do zabbix-server
   template:
     src: zabbix_server_conf.j2
