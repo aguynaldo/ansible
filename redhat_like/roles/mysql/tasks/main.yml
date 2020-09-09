@@ -4,4 +4,5 @@
   loop:
     - gerais.yml
     - mysqld.yml
+    - tuning.yml
 ...
