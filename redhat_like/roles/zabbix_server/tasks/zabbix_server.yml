@@ -1,9 +1,9 @@
 ---
-- name: Adiciona o repositório da Zabbix
+- name: Adiciona o repositorio Zabbix - CentOS8
   dnf:
     name: "{{ zabbix_rhel_repo }}"
     state: present
-
+    update_cache: yes
 
 - name: Instala o Zabbix-Server e o Cliente MYSQL
   dnf: 
@@ -15,6 +15,7 @@
 - name: Instala o PyMySQL. Requisito para fazer o import do sql.
   pip:
     name: PyMySQL
+    state: present
 
 - name: Descompacta arquivo de carga inicial do BD
   shell:
@@ -24,7 +25,7 @@
     creates: /tmp/initial.sql
   register: result_schema
 
-- name: Debug
+- name: Verifica se a task anterior conseguiu descompactar o arquivo sql inicial.
   debug:
     msg: "{{ result_schema }}"
 

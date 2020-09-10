@@ -42,4 +42,6 @@ zabbix_db_front_pass: "Senha#Front3nd!"
 # DATABASE
 zabbix_database: dbzabbix
 
+# Nome que aparece no title do browser ao acessar o zabbix.
+zabbix_installation_name: "Zabbix Server via Ansible"
 ...
