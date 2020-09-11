@@ -29,6 +29,12 @@
   timezone:
     name: "{{ time_zone }}"
 
+# ----------- Adiciona repo do zabbix no centos-8 ----------- #
+- name: Adiciona o repositorio do Zabbix - CentOS-8
+  dnf: 
+    name: "{{ zabbix_rhel_repo }}"
+    state: present
+    update_cache: yes
 
 # ----------- Pacotes ----------- #
 - name: Atualiza os sistemas RedHat based

@@ -1,10 +1,4 @@
 ---
-- name: Adiciona o repositorio Zabbix - CentOS8
-  dnf:
-    name: "{{ zabbix_rhel_repo }}"
-    state: present
-    update_cache: yes
-
 - name: Instala o Zabbix-Server e o Cliente MYSQL
   dnf: 
     name: 
