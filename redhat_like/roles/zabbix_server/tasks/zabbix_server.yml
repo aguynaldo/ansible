@@ -5,6 +5,7 @@
       - zabbix-server
       - mysql
     state: latest
+  when: ansible_distribution =="CentOS"
 
 - name: Instala o PyMySQL. Requisito para fazer o import do sql.
   pip:

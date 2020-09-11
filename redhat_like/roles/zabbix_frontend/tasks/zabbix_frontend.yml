@@ -6,6 +6,7 @@
       - zabbix-apache-conf
       - httpd
     state: latest
+  when: ansible_distribution =="CentOS"
 
 - name: Configura o timezone no /etc/php-fpm.d/zabbix.conf
   lineinfile: 
