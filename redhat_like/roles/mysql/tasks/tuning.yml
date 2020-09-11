@@ -5,7 +5,7 @@
     state: stopped
   register: result
 
-- name: Debug
+- name: Debug - Verifica se conseguiu parar o serviço do mysql.
   debug:
     msg: "{{ result }}"
 

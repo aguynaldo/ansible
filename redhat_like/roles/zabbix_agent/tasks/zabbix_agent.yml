@@ -4,7 +4,7 @@
     name: "{{ zabbix_rhel_repo }}"
     state: present
     update_cache: yes
-  when: ansible_distribution =="CentOS"
+  when: ansible_distribution == "CentOS"
 
 - name: Instala os pacotes do zabbix agent
   dnf: 
@@ -12,7 +12,7 @@
       - zabbix-agent 
       - zabbix-get
       - zabbix-sender
-  when: ansible_distribution =="CentOS"
+  when: ansible_distribution == "CentOS"
 
 - name: Copia o template do arquivo de configuração para pasta do zabbix agent
   template:

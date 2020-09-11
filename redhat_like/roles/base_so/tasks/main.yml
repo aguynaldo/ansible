@@ -2,14 +2,14 @@
 # ----------- GERAIS ----------- #
 - name: Desabilita o SELinux em execução (Temp)
   shell: setenforce 0
-  when: ansible_selinux.status == "enabled" and ansible_distribution =="CentOS"
+  when: ansible_selinux.status == "enabled" and ansible_distribution == "CentOS"
 
 - name: Desabilita o SELinux permanentemente
   replace:
     dest=/etc/selinux/config
     regexp='SELINUX=enforcing'
     replace='SELINUX=disabled'
-  when: ansible_selinux.status == "enabled"  and ansible_distribution =="CentOS"
+  when: ansible_selinux.status == "enabled" and ansible_distribution == "CentOS"
 
 - name: Customiza o /etc/profile
   lineinfile: dest=/etc/profile line={{ item }}
@@ -46,7 +46,7 @@
     name: "{{ zabbix_rhel_repo }}"
     state: present
     update_cache: yes
-  when: ansible_distribution =="CentOS"
+  when: ansible_distribution == "CentOS"
 
 # ----------- Pacotes ----------- #
 - name: Atualiza os sistemas RedHat based
@@ -60,7 +60,7 @@
   dnf:
     name: "{{ common_packages_redhat_like }}"
     state: latest
-  when: ansible_distribution =="CentOS"
+  when: ansible_distribution == "CentOS"
     
 # ----------- Firewall ----------- #
 - name: Habilita inicialização automática do firewalld 

@@ -5,12 +5,12 @@
 
 - name: Desabilita o SELinux em execução (Temp)
   shell: setenforce 0
-  when: ansible_selinux.status == "enabled"
+  when: ansible_selinux.status == "enabled" and ansible_distribution == "CentOS"
 
 - name: Desabilita o SELinux permanentemente
   replace:
     dest=/etc/selinux/config
     regexp='SELINUX=enforcing'
     replace='SELINUX=disabled'
-  when: ansible_selinux.status == "enabled"  
+  when: ansible_selinux.status == "enabled" and ansible_distribution == "CentOS" 
 ...
