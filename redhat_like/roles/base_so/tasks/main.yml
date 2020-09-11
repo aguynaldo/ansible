@@ -1,5 +1,16 @@
 ---
 # ----------- GERAIS ----------- #
+- name: Desabilita o SELinux em execução (Temp)
+  shell: setenforce 0
+  when: ansible_selinux.status == "enabled" 
+
+- name: Desabilita o SELinux permanentemente
+  replace:
+    dest=/etc/selinux/config
+    regexp='SELINUX=enforcing'
+    replace='SELINUX=disabled'
+  when: ansible_selinux.status == "enabled" 
+
 - name: Customiza o /etc/profile
   lineinfile: dest=/etc/profile line={{ item }}
   with_items:
@@ -55,5 +66,4 @@
     state: reloaded 
     daemon_reload: yes 
     enabled: yes
-  
 ...

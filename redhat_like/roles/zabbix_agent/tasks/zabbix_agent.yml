@@ -34,5 +34,4 @@
     state: enabled
   notify: 
     - Recarrega o firewalld
-
 ...

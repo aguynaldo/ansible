@@ -4,5 +4,4 @@
   loop:
     - gerais.yml
     - zabbix_frontend.yml
-
 ...
